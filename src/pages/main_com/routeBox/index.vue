@@ -14,7 +14,7 @@
         </div>
         <div ref="scrollBody" :style="{left: tagBodyLeft + 'px'}" class="route-inner-scroll">
             <transition-group tag="div" name="taglist-moving-animation">
-                <Tag ref="tagsPageOpened" @click.native="toPage(page)" @on-close="closeHandler(page)" v-for="(page,index) in pageList" :key="index" :name="page.name" type="dot" class="no-select" :closable="page.name!=root.name" :color="currPageName==page.name?'blue':'default'">
+                <Tag ref="tagsPageOpened" @click.native="toPage(page)" @on-close="closeHandler(page)" v-for="(page,index) in pageList" :key="'page.name'+index" :name="page.name" type="dot" class="no-select" :closable="page.name!=root.name" :color="currPageName==page.name?'blue':'default'">
                     {{page.title}}
                 </Tag>
             </transition-group>

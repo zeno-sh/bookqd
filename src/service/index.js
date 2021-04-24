@@ -73,15 +73,16 @@ export const Press = {
 }
 
 export const Book = {
-    async  get(params) {
+    async  get(data) {
         return await http({
-            url: '/api/book/list',
-            params
+            url: '/book/query',
+            method: 'post',
+            data
         });
     },
     async create(data) {
         return await http({
-            url: '/api/book/create',
+            url: '/book/addBook',
             method: "post",
             data
         });
@@ -118,7 +119,7 @@ export const Book = {
 export const User = {
     async  login(data) {
         return await http({
-            url: '/api/login',
+            url: '/user/login',
             method: 'post',
             data
         });

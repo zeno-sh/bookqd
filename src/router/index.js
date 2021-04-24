@@ -55,7 +55,11 @@ const router = new VueRouter({
         path: '/login',
         name: 'Login',
         component: () => import('@/pages/login'),
-    }, Others]
+    }, {
+        path: '/register',
+        name: 'Register',
+        component: () => import('@/pages/register'),
+    },Others]
 })
 router.beforeEach(beforeEach)
 router.afterEach(afterEach);

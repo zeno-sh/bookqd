@@ -2,10 +2,10 @@
     <Modal top="5%" width="500" v-model="modal.show" :title="this.params._id?'编辑':'新增'" @on-ok="modalOk" @on-cancel="cancel">
         <div class="modal-form">
             <Form ref="form" :model="params" :rules="rules" :labelWidth="80">
-                <FormItem label="书名" prop="name">
-                    <Input v-model="params.name" placeholder="请输入书名"></Input>
+                <FormItem label="ISBN" prop="isbn">
+                    <Input v-model="params.isbn" placeholder="请输入图书ISBN"></Input>
                 </FormItem>
-                <FormItem label="类别" prop="category">
+                <!-- <FormItem label="类别" prop="category">
                     <Select v-model="params.category" filterable>
                         <Option v-for="item in categoryList" :value="item._id" :key="item._id">{{ item.name }}</Option>
                     </Select>
@@ -30,7 +30,7 @@
                 </FormItem>
                 <FormItem label="简介" prop="desc">
                     <Input v-model="params.desc" type="textarea" :rows="6" placeholder="简介"></Input>
-                </FormItem>
+                </FormItem> -->
             </Form>
         </div>
         <div slot="footer">

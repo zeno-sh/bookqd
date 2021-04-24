@@ -8,7 +8,7 @@
                         <Input v-model="params.name" placeholder="搜索书籍"></Input>
                     </FormItem>
                 </Col>
-                <Col :lg="6" :sm="8" :xs="24">
+                <!-- <Col :lg="6" :sm="8" :xs="24">
                     <FormItem label="书籍作者" prop="author">
                         <Input v-model="params.author" placeholder="搜索作者"></Input>
                     </FormItem>
@@ -39,7 +39,7 @@
                             <Option value="1" key="1">已借出</Option>
                         </Select>
                     </FormItem>
-                </Col>
+                </Col> -->
             </template>
             <template slot="action">
                 <Button @click="addrow()" type="primary" icon="plus-round">新增</Button>
@@ -50,7 +50,7 @@
         </Table>
         <!--分页-->
         <Block align="right">
-            <Page :total="count" :page-size="params.size" show-elevator :current.sync="params.pageNo" show-total @on-change="pageChange">
+            <Page :total="total" :page-size="params.pageSize" show-elevator :current.sync="params.pageNo" show-total @on-change="pageChange">
             </Page>
         </Block>
         <!--  -->

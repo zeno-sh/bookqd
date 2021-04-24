@@ -12,6 +12,7 @@ import './render'
 
 Vue.config.silent = false
 Vue.config.productionTip = false
+Vue.config.devtools = true;
 Vue.prototype.$Message.config({
     duration: 1
 });

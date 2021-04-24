@@ -29,11 +29,11 @@ export default {
             categoryList: [],
             pressList: [],
             rules: {
-                name: { type: "string", required: true, message: "必填项" },
-                category: { type: "string", required: true, message: "必填项" },
-                press: { type: "string", required: true, message: "必填项" },
-                author: { type: "string", required: true, message: "必填项" },
-                stock: { type: "number", required: true, message: "必填项" }
+                isbn: { type: "string", required: true, message: "必填项" }
+                // category: { type: "string", required: true, message: "必填项" },
+                // press: { type: "string", required: true, message: "必填项" },
+                // author: { type: "string", required: true, message: "必填项" },
+                // stock: { type: "number", required: true, message: "必填项" }
             }
         };
     },
@@ -45,13 +45,15 @@ export default {
         initData() {
             return {
                 _id: undefined,
-                name: "",
-                category: "",
-                press: "",
-                author: "",
-                stock: "",
-                desc: "",
-                borrowStatus: "0"
+                accountName: "123",
+                isbn: ""
+                // name: "",
+                // category: "",
+                // press: "",
+                // author: "",
+                // stock: "",
+                // desc: "",
+                // borrowStatus: "0"
             };
         },
         async modalOk() {
@@ -66,7 +68,10 @@ export default {
             this.initModal("ok");
         },
         async create() {
-            let { data } = await Book.create(this.$QS.stringify(this.params));
+            let { data } = await Book.create(
+                // this.$QS.stringify(this.params)
+                this.params
+                );
         },
         async update() {
             let { data } = await Book.update(this.$QS.stringify(this.params));

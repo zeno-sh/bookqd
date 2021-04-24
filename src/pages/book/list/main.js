@@ -16,13 +16,9 @@ export default {
             count: 0,
             params: {
                 pageNo: 1, //当前页
-                size: 20,
-                category: "",
-                name: "",
-                press: "",
-                author: "",
-                createdAt: "",
-                borrowStatus:""
+                pageSize: 5,
+                accountName: "123"
+                
             },
             rows: [],
             columns: columns.call(this),
@@ -36,8 +32,8 @@ export default {
     },
     created() {
         this.showList();
-        this.getCategoryAll();
-        this.getPressAll();
+        // this.getCategoryAll();
+        // this.getPressAll();
     },
     methods: {
         async addrow() {
@@ -50,9 +46,9 @@ export default {
                 ...this.params,
                 createdAt
             });
-            let { rows = [], count } = data;
-            this.data = rows;
-            this.count = count;
+
+            this.data = data.data.list;
+            this.total = data.data.total;
             this.$Message.success("加载完成");
         },
         async confirmDel(ids) {

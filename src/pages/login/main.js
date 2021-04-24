@@ -10,8 +10,7 @@ export default {
             code: "/api/login/checkcode",
             forms: {
                 userName: "",
-                password: "",
-                img: ""
+                password: ""
             },
             rules: {
                 userName: {
@@ -23,12 +22,12 @@ export default {
                     required: true,
                     message: "The password cannot be empty",
                     trigger: "blur"
-                },
-                img: {
-                    required: true,
-                    message: "The checkcode cannot be empty",
-                    trigger: "blur"
                 }
+                // img: {
+                //     required: true,
+                //     message: "The checkcode cannot be empty",
+                //     trigger: "blur"
+                // }
             }
         };
     },
@@ -46,13 +45,14 @@ export default {
             this.loading = true;
             try {
                 let { data } = await User.login(
-                    this.$QS.stringify(this.forms)
+                    // this.$QS.stringify(this.forms)
+                    this.forms
                 );
                 this.loading = false;
                 this.$Message.success("登录成功");
                 this.pwdlocal();
-                this.$store.commit("users/users", data);
-                this.$router.replace({ name: "User" });
+                this.$store.commit("users/users", data.data);
+                this.$router.replace({ name: "Book" });
             } catch (e) {
                 this.loading = false;
                 this.resetCode();
@@ -74,6 +74,9 @@ export default {
                 this.forms.password = storage.getLocal("password")||"";
                 this.forms.userName = storage.getLocal("userName")||"";
             }
+        },
+        gotoRegister() {
+            this.$router.replace({ name: "Register" });
         }
     }
 };

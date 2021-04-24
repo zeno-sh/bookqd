@@ -2,73 +2,119 @@ import router from "@/router";
 export default function () {
     return [
         {
-            type: "selection",
-            width: 60,
-            align: "center"
+            title: "封面",
+            key: "images",
+            align: "center",
+            // render: (h, { row }) => {
+            //     return h('img',{
+            //         attrs:{
+            //             src: row.images, style: 'width: 100px;border-radius: 2px;'
+            //         },
+            //     })
+            // },
+            render: (h, { row }) => {
+                return h('Poptip', {
+                  props: {
+                    placement: 'right',
+                    trigger: 'hover',
+                  },
+   
+                }, [
+                  h('img', {
+                    props: {},
+                    style: {
+                      width: '32px',
+                      height: '42px',
+                      cursor: 'pointer'
+                    },
+                    attrs: {
+                      src: row.images,
+                    },
+                  }),
+                  h('div', {
+                    slot: 'content',
+                    style: {
+                      textAlign: 'center'
+                    },
+                  }, [
+                    h('img', {
+                      attrs: {
+                        src: row.images,
+                      },
+                      style: {
+                        width: '100px'
+                      },
+                    })
+                  ])
+                ])
+              }
         },
+        // {
+        //     type: "selection",
+        //     width: 60,
+        //     align: "center"
+        // },
         {
             title: "书名",
-            key: "name",
+            key: "title",
             align: "center",
-        },
-        {
-            title: "借阅状态",
-            key: "borrowStatus",
-            align: "center",
-            width:140,
-            render: (h, { row }) => {
-
-                return row.borrowStatus ?
-                    <Tag type="dot" color="red">已借出</Tag>
-                    : <Tag type="dot" color="green">未借出</Tag>
-            }
-        },
-        {
-            title: "类别",
-            key: "category",
-            align: "center",
-            render: (h, { row }) => {
-                return row.category && row.category.name || ""
-            }
-        },
-        {
-            title: "出版社",
-            key: "press",
-            align: "center",
-            render: (h, { row }) => {
-                return row.press && row.press.name || ""
-            }
         },
         {
             title: "作者",
             key: "author",
             align: "center",
         },
+        // {
+        //     title: "借阅状态",
+        //     key: "borrowStatus",
+        //     align: "center",
+        //     width:140,
+        //     render: (h, { row }) => {
+
+        //         return row.borrowStatus ?
+        //             <Tag type="dot" color="red">已借出</Tag>
+        //             : <Tag type="dot" color="green">未借出</Tag>
+        //     }
+        // },
+        // {
+        //     title: "类别",
+        //     key: "category",
+        //     align: "center",
+        //     render: (h, { row }) => {
+        //         return row.category && row.category.name || ""
+        //     }
+        // },
         {
-            title: "简介",
-            key: "desc",
-            align: "center",
-            render: (h, { row }) => {
-                let text = row.desc ? row.desc.substring(0, 5) + '...' : ""
-                return <span title={text}>{text}</span>
-            }
+            title: "出版社",
+            key: "publisher",
+            align: "center"
         },
         {
-            title: "借阅次数",
-            key: "borrowTotal",
-            align: "center",
-            render: (h, { row }) => {
-                return row.borrowTotal || 0;
-            }
+            title: "出版时间",
+            key: "pubdate",
+            align: "center"
         },
-        {
-            title: "上架时间",
-            key: "createdAt",
-            align: "center",
-            render: (h, { row }) => {
-                return new Date(row.createdAt).Format('yyyy-MM-dd')
-            }
-        },
+        // {
+        //     title: "简介",
+        //     key: "summary",
+        //     align: "center"
+        // },
+        // {
+        //     title: "借阅次数",
+        //     key: "borrowTotal",
+        //     align: "center",
+        //     render: (h, { row }) => {
+        //         return row.borrowTotal || 0;
+        //     }
+        // },
+        // {
+        //     title: "上架时间",
+        //     key: "createdAt",
+        //     align: "center",
+        //     render: (h, { row }) => {
+        //         return new Date(row.createdAt).Format('yyyy-MM-dd')
+        //     }
+        // },
         {
             title: "操作",
             align: "center",

@@ -9,19 +9,19 @@ module.exports = {
         // Paths
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        proxyTable: {
-            '/api': {
-                target: 'http://127.0.0.1:7001',
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/api': 'api'
-                }
-            },
-        },
+        // proxyTable: {
+        //     '/api': {
+        //         target: 'http://127.0.0.1:8080',
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api': 'api'
+        //         }
+        //     },
+        // },
 
         // Various Dev Server settings
         host: '127.0.0.1', // can be overwritten by process.env.HOST
-        port: 9898, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+        port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         autoOpenBrowser: true,
         errorOverlay: true,
         notifyOnErrors: true,

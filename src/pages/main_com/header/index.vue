@@ -25,7 +25,7 @@
             <!-- 工具 -->
             <ul class="right color-paint">
                 <FullScreen class="liChild" v-model="isFullScreen"></FullScreen>
-                <li class="hover theme liChild">
+                <!-- <li class="hover theme liChild">
                     <Dropdown @on-click="themeClickItem" trigger="click" class="down">
                         <a href="javascript:void(0)">
                             <Icon type="paintbucket" :size="18"></Icon>
@@ -44,17 +44,16 @@
                             </DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-                </li>
+                </li> -->
                 <li class="hover last liChild">
                     <Dropdown trigger="click" @on-click="MenuClickItem" class="down">
+                        <Avatar src="https://one-1253333369.cos.ap-shanghai.myqcloud.com/markdown/20210423165311.png" />
                         <a href="javascript:void(0)">
-                            <p class="radius">
-                                <Icon class="person" type="person"></Icon>
-                            </p>
                             <span> {{username}}</span>
                             <Icon type="arrow-down-b"></Icon>
                         </a>
                         <DropdownMenu slot="list">
+                            <DropdownItem name="outLogin1">修改信息</DropdownItem>
                             <DropdownItem name="outLogin">退出登录</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
@@ -77,7 +76,9 @@ export default {
       loggTitle: logoText
     };
   },
-  created() {},
+  created() {
+      
+  },
   computed: mapState({
     hideMenuText: state => state.menu.hideMenuText,
     currentPath: state => state.menu.currentPath,
